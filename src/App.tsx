@@ -1,22 +1,23 @@
 import React from "react";
-import {SafeAreaView, StyleSheet, Text, View} from "react-native";
+import {SafeAreaView, StyleSheet, View} from "react-native";
+import {colors} from "./constants/twitterStyle";
+import {Button} from "./ui/Button";
 
 const App = () => {
   return (
     <SafeAreaView>
-      <View>
-        <Text style={styles.heading}>Hello World</Text>
+      <View style={[styles.container]}>
+        <Button color="primary" size="small" text="hello" />
+        <Button color="primary" size="small" text="hello" />
       </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  heading: {
-    backgroundColor: "blue",
-    color: "#fff",
-    padding: 40,
-    textAlign: "center",
+  container: {
+    backgroundColor: colors.black,
+    minHeight: "100%",
   },
 });
 
