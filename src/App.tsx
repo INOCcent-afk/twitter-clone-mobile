@@ -7,7 +7,7 @@ const App = () => {
   return (
     <SafeAreaView>
       <View style={[styles.container]}>
-        <Button color="primary" size="small" text="hello" />
+        <Button color="primary" size="small" text="hello" disabled />
         <Button color="primary" size="small" text="hello" />
       </View>
     </SafeAreaView>
@@ -16,6 +16,8 @@ const App = () => {
 
 const styles = StyleSheet.create({
   container: {
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor: colors.black,
     minHeight: "100%",
   },

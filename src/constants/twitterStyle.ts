@@ -1,8 +1,8 @@
 import {TextStyle} from "react-native";
 
 export const colors = {
-  black: "#000",
-  white: "#fff",
+  black: "#000000",
+  white: "#ffffff",
   primary: "#1c9bef",
   primary900: "#0a171f",
   green: "#019966",
@@ -10,9 +10,9 @@ export const colors = {
   blue400: "rgba(91, 112, 131, 0.4)",
   red: "#c21465",
   red900: "#200914",
-  red100: "#red",
+  red100: "red",
   secondary: "#202327",
-  gray: "#eee",
+  gray: "#eeeeee",
   graySecondary: "#64686d",
   graySecondary500: "rgb(100, 104, 109, 0.5)",
   accentGray: "#191b1f",
