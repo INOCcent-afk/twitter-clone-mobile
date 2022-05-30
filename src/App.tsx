@@ -3,15 +3,14 @@ import {SafeAreaView, StyleSheet, Text, View} from "react-native";
 import {colors} from "./constants/twitterStyle";
 import {Button} from "./ui/Button";
 import axios from "axios";
+import Config from "react-native-config";
 
 const App = () => {
   const [state, setState] = useState<any>(null);
 
   const fetchUser = async () => {
     try {
-      const response = await axios.get(
-        "http://192.168.254.121:1337/api/tweets",
-      );
+      const response = await axios.get(`http://${Config.IP}:1337/api/tweets`);
 
       if (response.status === 200) {
         setState(response.data);
