@@ -1,62 +1,29 @@
-import React, {useEffect, useState} from "react";
-import {SafeAreaView, StyleSheet, Text, View} from "react-native";
-import {colors} from "./constants/twitterStyle";
-import {Button} from "./ui/Button";
-import axios from "axios";
-import Config from "react-native-config";
+import React from "react";
+import {NavigationContainer} from "@react-navigation/native";
+import {createNativeStackNavigator} from "@react-navigation/native-stack";
+
+const Stack = createNativeStackNavigator();
+
+import {LoginScreen} from "./screens/LoginScreen";
+import {MainScreens} from "./screens/navigations/MainScreens";
 
 const App = () => {
-  const [state, setState] = useState<any>(null);
-
-  const fetchUser = async () => {
-    try {
-      const response = await axios.get(`http://${Config.IP}:1337/api/tweets`);
-
-      if (response.status === 200) {
-        setState(response.data);
-
-        return;
-      } else {
-        throw new Error("Noice");
-      }
-    } catch (error) {}
-  };
-
-  useEffect(() => {
-    fetchUser();
-  }, []);
-
   return (
-    <SafeAreaView>
-      <View style={[styles.container]}>
-        {state &&
-          state.data.map((item: any) => (
-            <Text key={item.id} style={styles.text}>
-              {item.attributes.text}
-            </Text>
-          ))}
-
-        <Button color="primary" size="small" text="hello" disabled />
-        <Button color="primary" size="small" text="hello" />
-      </View>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Main"
+          component={MainScreens}
+          options={{headerShown: false}}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: colors.black,
-    height: "100%",
-  },
-
-  text: {
-    color: "white",
-    paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: "white",
-  },
-});
 
 export default App;
