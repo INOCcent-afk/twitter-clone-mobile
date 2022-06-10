@@ -19,13 +19,12 @@ export const signUp = async (data: ISignup) => {
 export const signIn = async (data: ISignIn) => {
   try {
     const response = await axios.post(
-      `http://192.168.254.121:1337/api/auth/local`,
+      `${apiConfig.url.API_URL}/api/auth/local`,
       data,
     );
 
     return response;
   } catch (error) {
-    console.log(error.response);
     throw error;
   }
 };

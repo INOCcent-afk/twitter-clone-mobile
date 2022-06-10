@@ -27,7 +27,6 @@ export const LoginScreen: FC<LoginScreenProps> = ({navigation}) => {
   return (
     <ScreenContainer>
       <Text style={styles.text}>LoginScreen</Text>
-
       <Button title="Login" onPress={() => login()} />
     </ScreenContainer>
   );
